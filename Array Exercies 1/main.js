@@ -69,7 +69,27 @@ console.table(ageSorting)
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
+//Now we are working on the people array
 
+const major = people.sort((lastOne, nextOne) => {
+    const [alast, afirst] = lastOne.split(', ')
+    const [blast, bfirst] = nextOne.split(', ')
+    // console.log(alast, afirst);
+    // console.log(blast, bfirst);
+    return alast > blast ? 1 : -1;
+});
+console.log(major);
 // 8. Reduce Exercise
 // Sum up the instances of each of these
-const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck'];
+const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bike', 'walk', 'car', 'van', 'car', 'truck', 'UFO', 'Starship'];
+
+const modeOfTransport = data.reduce((obj, item) => {
+    // console.log(item);
+    if (!obj[item]) {
+        obj[item] = 0
+    }
+    obj[item]++;
+    return obj
+}, {})
+
+console.log(modeOfTransport);
